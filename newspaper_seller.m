@@ -53,8 +53,11 @@ for buy = (40:10:100)
     per_day_salvage = zeros(total_days, 1);
     for i = 1: total_days
         if buy < per_day_demands(i)
-            
+            per_day_rev(i) = bought * selling_price;
+        else
+            per_day_rev(i) = per_day_demands(i) * selling_price;
         end
+        cost_of_newspaper(i) = buying_price * bought;
     end
 end
 
