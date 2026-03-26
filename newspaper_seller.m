@@ -14,12 +14,11 @@ rand_digit_fair = [10, 28, 68, 88, 96, 100]';
 rand_digit_poor = [44, 66, 82, 94, 100]';
 
 per_day_demands = zeros(total_days, 1);
-%%
 newsday_types = days(discretesample(newsday_type_prob, total_days));
 per_sim_profit = zeros(7, 1);
 simulation = 1;
 
-%per day demand for 20 days
+%% per day demand for 20 days
 for i = 1: total_days
     rand_digit = unidrnd(100); %(range, row, col)
     if newsday_types(i) == 1
@@ -70,7 +69,7 @@ for bought = (40:10:100)
     per_sim_profit(simulation) = sum(per_day_profit);
     simulation = simulation + 1;
 end
-
+%% Final result creation
 [max_profit, max_profit_sim] = max(per_sim_profit);
 
 final_result = [max_profit, max_profit_sim];
